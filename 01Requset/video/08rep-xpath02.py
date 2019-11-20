@@ -3,8 +3,7 @@ import requests
 import random
 from time import sleep
 import pymysql
-import csv
-import codecs
+
 
 
 
