@@ -105,28 +105,3 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-        # print("标题:",title)
-        # print("总价:",total_price)
-        # print("平米价:",unit_price)
-        # print("小区:",community_name)
-        # print("位置:",position_info)
-        # print("链家编号:",house_record)
-        # print("链接地址:",link)
-        #
-        # print("房屋户型:",house_type)
-        # print("所在楼层:",pos_floor)
-        # print("建筑面积:",area_size)
-        # print("房屋结构:",house_structure)
-        # print("套内面积:",area_in)
-        # print("建筑类型:",build_type)
-        # print("房屋朝向:",house_direction)
-        # print("建筑结构:",build_structure)
-        # print("装修情况:",dec_status)
-        # print("梯户比例:",ele_per)
-        # print("供暖类型:",heating_type)
-        # print("配备电梯:",is_ele)
-        # print("房屋产权:",house_property)
