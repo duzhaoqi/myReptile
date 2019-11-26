@@ -27,15 +27,11 @@ def get_list(url):
         url = base_url+"/{}.html".format(str(page))
         html,cur_url = down(url)
         soup = BeautifulSoup(html,'lxml')
-        list_a = soup.select('a[class="green fb f13"]')
-        #list_a = soup.find_all(re.compile(r'<a .* class=\"green fb f13\" .*?</a>'))
+        list_a = soup.select('h3 > span > a[class="green fb f13"]')
 
         if len(list_a) == 0:
             break
         for page in list_a:
-            if page.string == None:
-                continue
-            name = page.get_text()
             link = page["href"]
             get_prodect(link)
 
@@ -43,9 +39,12 @@ def get_prodect(link):
     html, repose_url = down(link)
     soup = BeautifulSoup(html,'lxml')
     pro = soup.select('div.text01 > ul > li')
-    for li in pro:
-        print(li.get_text().replace("\n","").replace("・",""))
-    print("="*60)
+    p_name = pro[0].h3.get_text()
+    p_class = pro[1].get_text()
+    print("产品名称： "+p_name)
+    print("产品分类： "+p_class)
+    print("链接地址: "+link)
+
 
 
 if __name__ == "__main__":
