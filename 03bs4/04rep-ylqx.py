@@ -40,12 +40,27 @@ def get_prodect(link):
     soup = BeautifulSoup(html,'lxml')
     pro = soup.select('div.text01 > ul > li')
     p_name = pro[0].h3.get_text()
-    p_class = pro[1].get_text()
+    p_class = str(pro[1].contents[1])
+    p_nums = pro[3].h3.get_text()
+    try:
+        p_standard=str(pro[4].contents[1]).strip()
+    except IndexError:
+        p_standard=""
+    p_area = soup.select('li[class="bgwhite pt"] > h3 > a')[0].get_text()
+    p_persion = soup.select('dd.text04 > ul >li')[2].get_text().split('：')[1]
+
+
     print("产品名称： "+p_name)
     print("产品分类： "+p_class)
+    print("批准文号： "+p_nums)
+    print("主要规格： "+p_standard)
+    print("生产企业: "+p_area)
     print("链接地址: "+link)
 
 
 
 if __name__ == "__main__":
     get_cate()
+
+
+
