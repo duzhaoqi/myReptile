@@ -12,3 +12,16 @@ def func(m):
     return 'HI'+ ' '+m.group(1)
 
 print(regex.sub(func,s2,1)) #里面的1代表只替换一次
+
+
+##贪婪与非贪婪
+
+strs='aa<div>hello</div>23456ve<div>haode</div>cc'
+
+ret = re.compile(r'<div>.*</div>')
+m= ret.search(strs)
+print(m.group())
+
+ret = re.compile(r'<div>.*?</div>')
+m= ret.search(strs)
+print(m.group())
