@@ -7,8 +7,25 @@ def down(url):
     html = reponse.content.decode('utf-8')
     return html
 
+def get_data(html):
+    lv0 = re.compile(r'<div class="text-column-item box box-790">(.*?</div>.*?</div>.*?</div>.*?</div>.*?</div>).*?</div>',re.M|re.S)
+    data01 = lv0.findall(html)
+    for i in data01:
+        print(i)
+        print('='*60)
+
+def main(ends):
+       for page in range(1,ends+1):
+        if page == 1:
+            url="https://www.neihan-8.com/wenzi/"
+        else:
+            url="https://www.neihan-8.com/wenzi/index_{}.html".format(str(page))
+        
+        html = down(url)
+        get_data(html)
+        
 
 if __name__ == "__main__":
-    url="https://www.neihan-8.com/wenzi/"
-    html = down(url)
-    print(html)
+    ends=5
+    main(ends)
+ 
